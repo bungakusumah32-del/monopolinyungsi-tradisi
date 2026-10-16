@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="su"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nyungsi Pangarti: Tradisi Sunda</title>
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff4dc;--ink:#3b2412;--card:#fff;--br:#3b2412;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#2a1b10;--ink:#fff1d6;--card:#3d2918;--br:#ffd98a}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Baloo 2','Trebuchet MS',sans-serif;min-height:100vh}
+button{font:inherit;font-weight:800;border:3px solid var(--br);border-radius:14px;padding:8px 16px;background:#ffd95e;color:#3b2412;cursor:pointer;transition:.15s;box-shadow:0 4px 0 var(--br)}
+button:hover:not(:disabled){transform:translateY(-2px)}button:active:not(:disabled){transform:translateY(3px);box-shadow:none}
+button:disabled{opacity:.45;cursor:not-allowed}
+.g{background:#7ed36b}.r{background:#ff7a8a}.b{background:#8fd0f5}.p{background:#d2a8f5}
+.wrap{max-width:1100px;margin:0 auto;padding:8px}
+h1.t{font-size:clamp(22px,5vw,44px);margin:6px 0;text-align:center;line-height:1}
+.sub{text-align:center;font-weight:700;background:#c98b4a;color:#fff;display:table;margin:4px auto;padding:2px 22px;border-radius:8px}
+.menu{max-width:520px;margin:10px auto;background:var(--card);border:4px solid var(--br);border-radius:22px;padding:16px;display:grid;gap:10px}
+.menu input,.menu select{font:inherit;padding:8px;border-radius:10px;border:2px solid var(--br);background:var(--bg);color:var(--ink);width:100%}
+.ill{font-size:clamp(28px,7vw,48px);text-align:center;letter-spacing:6px}
+.row{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+#board{display:grid;grid-template-columns:repeat(9,1fr);grid-template-rows:repeat(7,1fr);gap:clamp(2px,.5vw,6px);aspect-ratio:9/7;width:100%;background:#fff;border:4px solid var(--br);border-radius:18px;padding:clamp(3px,.8vw,8px)}
+.cell{position:relative;border:2px solid var(--br);border-radius:12px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;color:#3b2412;font-weight:800;overflow:hidden;line-height:1}
+.cell svg{width:62%;max-height:52%;flex:none}.cell small{font-size:clamp(5px,1vw,12px);padding:0 2px;margin-top:1px;line-height:1.05}
+.cell em{position:absolute;top:1px;left:4px;font-size:clamp(6px,.9vw,10px);font-style:normal;opacity:.65}
+.tk{display:flex;gap:1px;flex-wrap:wrap;justify-content:center;min-height:clamp(10px,2vw,20px)}
+.pw{width:clamp(11px,2.2vw,24px);height:clamp(11px,2.2vw,24px);border-radius:50%;border:2px solid #fff;display:grid;place-items:center;font-size:clamp(7px,1.5vw,15px);animation:pop .3s;box-shadow:0 0 0 1px #000}
+@keyframes pop{0%{transform:scale(.3) translateY(-8px)}70%{transform:scale(1.35)}100%{transform:scale(1)}}
+#ctr{grid-area:2/2/7/9;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:radial-gradient(#fff8e6,#ffe8b8);color:#3b2412;border-radius:14px;padding:4px;overflow:hidden}
+#ctr h2{font-size:clamp(14px,4.2vw,46px);margin:0;line-height:.95;-webkit-text-stroke:1px #fff;color:#4a2a12}
+#ctr .e{font-size:clamp(16px,4vw,42px)}#ctr .rb{background:#c98b4a;color:#fff;padding:0 14px;border-radius:6px;font-weight:800;font-size:clamp(8px,1.8vw,18px)}
+.panel{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px}
+@media(max-width:700px){.panel{grid-template-columns:1fr}.cell small{display:none}.cell small.big{display:block;font-size:8px!important}.cell svg{width:80%;max-height:70%}}
+.box{background:var(--card);border:3px solid var(--br);border-radius:16px;padding:10px}
+#dice{width:76px;height:76px;font-size:54px;line-height:76px;text-align:center;background:#fff;color:#222;border:3px solid var(--br);border-radius:16px}
+#dice.roll{animation:sh .15s infinite}@keyframes sh{0%{transform:rotate(-14deg)}50%{transform:rotate(14deg) scale(1.1)}100%{transform:rotate(-14deg)}}
+.chip{display:flex;align-items:center;gap:8px;padding:3px 6px;border-radius:10px;margin:2px 0}.chip.on{background:#ffd95e55;outline:2px solid var(--br)}
+.dot{width:22px;height:22px;border-radius:50%;display:grid;place-items:center;font-size:13px;border:2px solid #fff;box-shadow:0 0 0 1px #000}
+#ov{position:fixed;inset:0;background:#000a;display:none;align-items:center;justify-content:center;padding:12px;z-index:9;overflow:auto}
+#md{background:var(--card);border:4px solid var(--br);border-radius:22px;max-width:560px;width:100%;max-height:92vh;overflow:auto;padding:16px;animation:in .35s}
+@keyframes in{from{transform:scale(.6) rotateY(90deg);opacity:0}}
+.opt{display:block;width:100%;text-align:left;margin:6px 0;background:#fff;font-weight:700}
+.opt.ok{background:#7ed36b!important;animation:pop .4s}.opt.no{background:#ff7a8a!important;animation:sh .2s 2}
+.back{height:150px;border-radius:16px;background:linear-gradient(135deg,#f6a6b8,#ffd95e,#8fd0f5);display:grid;place-items:center;font-size:80px;border:3px solid var(--br);margin-bottom:10px;animation:in .5s}
+#toast{position:fixed;left:50%;top:12px;transform:translateX(-50%);background:#3b2412;color:#fff;padding:8px 18px;border-radius:30px;font-weight:800;z-index:20;display:none;max-width:90vw;text-align:center}
+.cf{position:fixed;top:-40px;font-size:28px;animation:fall 4s linear forwards;z-index:30;pointer-events:none}@keyframes fall{to{transform:translateY(110vh) rotate(360deg)}}
+table{width:100%;border-collapse:collapse}td,th{padding:4px;border-bottom:1px solid #8884;text-align:center}
+</style></head><body>
+<div class="wrap">
+<div id="menu"><h1 class="t">NYUNGSI PANGARTI:<br>TRADISI SUNDA</h1><div class="sub">Kaulinan Papan Balad</div>
+<div class="ill">🪘🎶📚🎭🏠🌾</div>
+<div class="menu">
+<label>Jumlah kelompok<select id="np"><option>2</option><option>3</option><option>4</option></select></label>
+<div id="names"></div>
+<label>Tingkat kasusah<select id="df"><option value="1">Gampang (pilihan jawaban dikurangan)</option><option value="2" selected>Sedeng</option><option value="3">Sesah (+5 poin bonus)</option></select></label>
+<button class="g" id="bStart">▶ MULAI PERMAINAN</button><button class="g" id="bResume" style="display:none">⏯ LANJUTKEUN PERMAINAN</button>
+<div class="row"><button class="b" id="bHelp">📖 PETUNJUK BERMAIN</button><button class="p" id="bSnd">🔊 SUARA: ON</button></div></div></div>
+<div id="game" style="display:none">
+<div id="board"></div>
+<div class="panel"><div class="box"><b id="turn"></b>
+<div class="row" style="justify-content:flex-start;margin-top:8px;align-items:center"><div id="dice">🎲</div><button class="r" id="bRoll">🎲 KOCOK DADU</button></div>
+<div class="row" style="justify-content:flex-start;margin-top:10px"><button class="b" id="bScore">📊 LIHAT SKOR</button><button class="p" id="bEnd">🏆 LIHAT HASIL AKHIR</button><button id="bHelp2">📖</button><button id="bSnd2">🔊</button><button id="bMenu">🏠</button></div></div>
+<div class="box" id="mini"></div></div></div></div>
+<div id="ov"><div id="md"></div></div><div id="toast"></div>
+<script>
+/* ===== DATA KARTU: [patarosan, jawaban bener, salah1, salah2, salah3, katerangan] ===== */
+const Q=[
+["Tradisi Sunda nyaéta…","Kabiasaan turun-tumurun anu dilaksanakeun ku masarakat","Kabiasaan anyar anu karék kamari dijieun","Pagawéan hiji jalma tanpa aturan","Tarékah dagang pikeun kauntungan","Tradisi téh adat anu diwariskeun ti generasi ka generasi."],
+["Téks pedaran eusina…","Ngajéntrékeun hiji hal sacara rinci jeung jelas","Ngalalakonkeun kajadian dina urutan waktu","Ngabujeng supaya nurut","Ngan ukur pamanggih tanpa data","Pedaran = ngajéntrékeun objék sacara rinci."],
+["Struktur téks pedaran nyaéta…","Tésis, argumén, jeung panandes","Orientasi, komplikasi, resolusi","Bubuka, lalakon, ahir carita","Judul, poto, caption","Struktur pedaran: tésis – argumén – panandes."],
+["Bagian anu eusina gagasan utama pangarang disebut…","Tésis","Argumén","Panandes","Orientasi","Tésis = pamanggih atawa gagasan pokok."],
+["Fungsi argumén dina téks pedaran nyaéta…","Ngarojong tésis ku alesan, data, jeung conto","Nyimpulkeun deui tésis","Ngenalkeun tokoh","Nutup carita","Argumén ngabuktikeun yén tésis téh bener."],
+["Panandes dina téks pedaran fungsina…","Nyimpulkeun jeung negeskeun deui tésis","Ngenalkeun judul","Méré hadiah ka nu maca","Nambahan tokoh anyar","Panandes téh pamungkas, negeskeun inti pedaran."],
+["Seren Taun nyaéta tradisi…","Syukuran hasil tatanén (paré)","Lomba balap sapédah","Pésta ulang taun désa","Pasar kembang","Seren Taun mangrupa rasa syukur kana hasil panén."],
+["Paré hasil panén dina Seren Taun sok disimpen dina…","Leuit","Gudang mobil","Bank","Kulkas","Leuit = lumbung paré tradisional Sunda."],
+["Tujuan utama Ngaruwat Bumi nyaéta…","Nganuhunkeun jeung ngajaga alam sarta neda kasalametan","Néangan pangaruh pulitik","Ngumpulkeun duit tiket","Ngabéré-béré tatangga","Ngaruwat Bumi ngandung nilai ngajaga lingkungan."],
+["Tradisi Ngalaksa anu kawéntar di Rancakalong, Sumedang, patali jeung…","Ngolah laksa tina béas minangka syukur paré","Lomba ngala lauk","Ngarak budak disunat","Nyiar kai di leuweung","Ngalaksa = ngadamel laksa tina béas pikeun syukuran tani."],
+["Hajat Laut dilaksanakeun ku masarakat…","Nelayan minangka syukur kana hasil laut","Patani di gunung","Guru di sakola","Padagang di pasar kuno","Hajat Laut (contona di Pelabuhanratu) milik nelayan."],
+["Sisingaan nyaéta seni tradisi anu…","Ngarak budak anu disunat dina tandu rupa singa","Ngadu hayam","Maca sajak di panggung","Muka lahan huma","Sisingaan asalna ti Subang, ngarak sisingaan dipanggul."],
+["Salah sahiji ciri téks pedaran tradisi nyaéta…","Ngagunakeun basa baku jeung eusina objéktif","Pinuh ku kecap sora tiruan","Ngan ukur humor","Teu aya data","Pedaran nyoko kana fakta jeung basa baku."],
+["Anu kaasup unsur tradisi nyaéta…","Palaku, waktu, tempat, jeung sarana upacara","Harga tiket jeung iklan","Ukuran layar jeung warna","Jumlah kuota","Unsur tradisi: saha, iraha, dimana, jeung sarana."],
+["Nilai gotong royong dina tradisi katémbong tina…","Warga babarengan nyiapkeun ubarampé upacara","Unggal warga digawé sorangan-sorangan","Nu beunghar baé anu ngurus","Teu aya anu milu","Gotong royong = digawé babarengan."],
+["Nilai syukur dina Seren Taun diébréhkeun ku…","Nganuhunkeun ka Nu Maha Kawasa kana hasil tatanén","Nyalahkeun cuaca","Ngajual sakabéh paré","Ngalaan sawah","Syukur = pamuji kana nikmat."],
+["Hartina ngamumulé budaya nyaéta…","Miara, ngajaga, jeung ngarawat budaya","Ngajual budaya","Ngaliwatan budaya","Ngaganti ku budaya deungeun","Ngamumulé = miara jeung ngajaga."],
+["Tujuan pangarang nulis téks pedaran tradisi nyaéta…","Méré inpormasi jeung pamahaman ngeunaan tradisi","Ngajak balap liar","Ngajual produk","Nyindir batur","Pedaran téh informatif."],
+["Alat musik anu sok dipaké dina upacara adat Sunda nyaéta…","Angklung, kacapi, jeung gamelan degung","Piano jeung gitar listrik","Biola jeung saksofon","Drum band","Angklung jeung gamelan mangrupa waditra tradisional Sunda."],
+["Tahap pamungkas dina upacara adat biasana…","Doa panutup jeung dahar babarengan","Ngabubarkeun warga tanpa acara","Ngaliwat baé","Lomba hadiah mobil","Biasana ditutup ku doa jeung sasarap/tumpeng babarengan."],
+["Kecap panyambung anu cocog pikeun nambahan argumén nyaéta…","Salian ti éta","Sanajan kitu mah","Mun teu kitu","Kumargi kitu","'Salian ti éta' pikeun nambahan hal sejen."],
+["Bédana téks pedaran jeung narasi nyaéta…","Pedaran ngajéntrékeun hal, narasi ngalalakonkeun kajadian","Duanana sarua","Pedaran ngan ukur carita","Narasi tanpa tokoh","Pedaran = déskripsi, narasi = lalakon."],
+["Ngaruwat Bumi bisa ngajarkeun nilai…","Pelestarian lingkungan jeung kabersamaan","Boros jeung sombong","Individualis","Teu paduli alam","Tradisi ieu ngajaga alam jeung ngeratkeun balarea."],
+["Hasil nyungsi pangarti tina téks pedaran tradisi nyaéta…","Bisa manggihan tujuan, unsur, jeung nilai budayana","Apal judul baé","Ngitung jumlah kecap","Ngahaja ngarobah eusi","Nyungsi pangarti = nganalisis harti tina téks."]];
+const H=[
+["Lamun tradisi Seren Taun mimiti jarang dipiluan ku barudak ngora, léngkah naon anu paling merenah pikeun ngajaga kalumangsunganana?","Ngalibatkeun jajaka-ngora jadi panitia jeung ngadamel kagiatan kreatif sarta medsos","Ngalarang barudak ngora balanja","Ngaleungitkeun Seren Taun","Ngantosan baé tanpa tarékah","Ngalibatkeun generasi ngora ngajaga tradisi tetep hirup."],
+["Naon kamiripan anu pangpentingna antara Seren Taun jeung Hajat Laut?","Duanana wujud syukur kana hasil alam, ngan béda lingkungan (tani jeung laut)","Duanana ngan di kota gedé","Duanana ngarah kauntungan duit","Duanana teu ngagunakeun doa","Hubungan manusa jeung alam jadi inti dua tradisi."],
+["Sawatara warga nganggap Ngaruwat Bumi téh boros. Pedaran anu pangmerenahna nyaéta…","Nétélakeun nilai ngajaga alam jeung gotong royong, sarta méré solusi upacara sederhana","Nyeungseurikeun warga éta","Ngajak nyingkahan tradisi","Nambahan biaya","Pedaran kudu objéktif jeung méré jalan kaluar."],
+["Téks pedaran tradisi boga tésis kuat tapi teu aya argumén. Kumaha ngalengkepanana?","Nambahan data, conto, kasaksian narasumber, jeung alesan logis","Mupus tésisna","Nambahan hiasan baé","Ngulang tésis lima kali","Argumén kudu ngarojong tésis ku bukti."],
+["Sisingaan beuki réa dipidangkeun pikeun wisatawan. Résiko anu kudu diwaspadaan?","Tradisi leungit makna aslina lamun ngan jadi dagangan","Pamaén jadi pinter","Seni jadi leuwih kawéntar","Cai jadi beresih","Kudu ngimbangan pariwisata jeung ngajaga nilai tradisi."],
+["Lamun Ngalaksa digawé tanpa gotong royong, naon pangaruh pangbadagna?","Kaeratan warga mudun jeung tradisi hésé lumangsung","Laksa jadi leuwih amis","Warga leuwih gancang bobo","Paré langsung loba","Gotong royong téh tihang pangbadag lumangsungna upacara."]];
+
+/* ===== PETAK: 28 petak, jalur ngurilingan tepi papan 9x7 ===== */
+/* Urutan jalur nurutkeun gambar: ti Titik Awal naék ka luhur (katuhu), ka kenca (luhur), turun (kenca), ka katuhu (handap) nepi ka Geus Nepi */
+const T="s b3y qp b3y qp hc qp f2g qy b3 qp bal qy f2r qp b2 bomA qy b3 f2d qy f2g qp bomB b3 qy qp fin".split(" ");
+/* Ikon SVG nyocogkeun gambar rujukan */
+const SV={
+stars:`<svg viewBox="0 0 60 26"><text x="30" y="21" font-size="22" text-anchor="middle" fill="#ffc400" stroke="#b07a00" stroke-width="1">★★★</text></svg>`,
+cq:`<svg viewBox="0 0 64 52"><g stroke="#3b2412" stroke-width="2.5"><rect x="6" y="10" width="26" height="34" rx="5" fill="#ef5fa7" transform="rotate(-18 19 27)"/><rect x="17" y="6" width="26" height="34" rx="5" fill="#6f6cf0" transform="rotate(-4 30 23)"/><rect x="28" y="10" width="26" height="34" rx="5" fill="#8ed14b" transform="rotate(12 41 27)"/></g><text x="41" y="35" font-size="20" font-weight="800" fill="#fff" stroke="#3b2412" stroke-width="1" text-anchor="middle" transform="rotate(12 41 27)">?</text></svg>`,
+dice:`<svg viewBox="0 0 52 52"><rect x="5" y="5" width="42" height="42" rx="9" fill="#fff" stroke="#3b2412" stroke-width="3"/><g fill="#3b2412"><circle cx="17" cy="17" r="4"/><circle cx="35" cy="17" r="4"/><circle cx="26" cy="26" r="4"/><circle cx="17" cy="35" r="4"/><circle cx="35" cy="35" r="4"/></g></svg>`,
+arrF:`<svg viewBox="0 0 64 44"><path d="M8 36Q18 8 46 16" fill="none" stroke="#3b2412" stroke-width="14" stroke-linecap="round"/><path d="M8 36Q18 8 46 16" fill="none" stroke="#f5a623" stroke-width="9" stroke-linecap="round"/><path d="M42 3L60 18L40 30Z" fill="#f5a623" stroke="#3b2412" stroke-width="3" stroke-linejoin="round"/></svg>`,
+bomb:`<svg viewBox="0 0 56 56"><circle cx="26" cy="33" r="17" fill="#222" stroke="#3b2412" stroke-width="2"/><path d="M36 18Q42 10 48 12" stroke="#3b2412" stroke-width="3" fill="none"/><path d="M48 4l3 6 6 1-5 4 1 6-5-4-6 2 3-6-3-5 6 1z" fill="#ffd23f" stroke="#e8590c" stroke-width="1.5"/><ellipse cx="19" cy="27" rx="4" ry="3" fill="#fff" opacity=".5"/></svg>`,
+ang:`<svg viewBox="0 0 56 56"><g stroke="#3b2412" stroke-width="2" fill="#b07a3c"><rect x="14" y="6" width="6" height="40" rx="2"/><rect x="25" y="2" width="6" height="44" rx="2"/><rect x="36" y="10" width="6" height="36" rx="2"/><rect x="8" y="22" width="40" height="5" rx="2"/><rect x="8" y="38" width="40" height="5" rx="2"/><rect x="6" y="46" width="44" height="6" rx="2"/></g></svg>`,
+flag:`<svg viewBox="0 0 56 56"><path d="M4 50Q28 36 52 50L52 54L4 54Z" fill="#2f8f3a" stroke="#1d5a24" stroke-width="2"/><rect x="25" y="8" width="3" height="40" fill="#8a5a2b"/><path d="M28 8L50 15L28 24Z" fill="#e63946" stroke="#7a1019" stroke-width="2"/></svg>`};
+SV.arrB=SV.arrF.replace('<svg ','<svg style="transform:scaleX(-1)" ');
+SV.ch=SV.cq.replace(/<text.*?<\/text>/,'');
+/* M: [ikon, labél, latar, warna téks, pangaruh] */
+const M={
+s:['stars','TITIK AWAL','#8fdc6a','#3b2412','s'],
+qy:['cq','Candak Kartu Patarosan','#fff07a','#3b2412','q'],
+qp:['cq','Candak Kartu Patarosan','#f6a6b8','#3b2412','qr'],
+hc:['ch','>>>','#ec4a5a','#fff','h'],
+f2g:['arrF','MAJU 2 LENGKAH','#a6dc8a','#3b2412','f2'],
+f2r:['','MAJU 2 LANGKAH, OKE! >>>','#ec4a5a','#fff','f2'],
+f2d:['','MAJU 2 LANGKAH, DONG! >>>','#ec4a5a','#fff','f2'],
+b2:['arrB','MUNDUR 2 LENGKAH','#a6dc8a','#3b2412','b2'],
+b3:['dice','MUNDUR 3 LENGKAH','#8fd0f5','#3b2412','b3'],
+b3y:['dice','MUNDUR 3 LENGKAH','#fff07a','#3b2412','b3'],
+bomA:['bomb','KEMBALI KA MULAI','#d9b3f5','#3b2412','bom'],
+bomB:['bomb','KEMBALI KE MULAI','#d9b3f5','#3b2412','bom'],
+bal:['ang','BALIK KA KA (START)','#d9b3f5','#3b2412','bal'],
+fin:['flag','GEUS NEPI (SELESAI)','#8fdc6a','#3b2412','fin']};
+const LAST=27;
+function gridPos(i){ // ngitung baris/kolom grid pikeun indéks jalur
+  if(i===0)return[6,9]; if(i<=4)return[6-i,9]; if(i===5)return[1,9]; if(i<=12)return[1,9-(i-5)]; if(i===13)return[1,1]; if(i<=18)return[2+(i-14),1]; if(i===19)return[7,1]; if(i<=26)return[7,2+(i-20)]; return[7,9];}
+const COL=['#e63946','#2a9d8f','#f4a100','#7b2cbf'],ICO=['🥁','🎭','🏮','🌾'];
+const $=id=>document.getElementById(id), sleep=ms=>new Promise(r=>setTimeout(r,ms));
+let S=null, sound=true;
+try{sound=localStorage.getItem('nsp_snd')!=='0'}catch(e){}
+
+/* ===== SUARA ===== */
+let ac;function beep(f=440,d=.1,t='sine'){if(!sound)return;try{ac=ac||new(window.AudioContext||window.webkitAudioContext)();const o=ac.createOscillator(),g=ac.createGain();o.type=t;o.frequency.value=f;g.gain.value=.08;o.connect(g);g.connect(ac.destination);o.start();o.stop(ac.currentTime+d)}catch(e){}}
+function setSnd(){const t=sound?'ON':'OFF';$('bSnd').textContent='🔊 SUARA: '+t;$('bSnd2').textContent=sound?'🔊':'🔇';try{localStorage.setItem('nsp_snd',sound?'1':'0')}catch(e){}}
+function togSnd(){sound=!sound;setSnd();beep(600)}
+function toast(t,ms=1800){const e=$('toast');e.textContent=t;e.style.display='block';clearTimeout(toast.t);toast.t=setTimeout(()=>e.style.display='none',ms)}
+function modal(h){$('md').innerHTML=h;$('ov').style.display='flex'}function closeM(){$('ov').style.display='none'}
+
+/* ===== MENU ===== */
+function names(){const n=+$('np').value;$('names').innerHTML=[...Array(n)].map((_,i)=>`<label>${ICO[i]} Ngaran kelompok ${i+1}<input id="n${i}" placeholder="Kelompok ${i+1}" maxlength="18"></label>`).join('')}
+function help(){modal(`<h2>📖 Petunjuk Bermain</h2><ol><li>Kelompok giliran néken <b>KOCOK DADU</b>; pion maju nurutkeun angka dadu.</li><li>Petak kartu konéng = kartu Gampil (10 poin). Petak kartu pink = kartu acak (biasana Gampil, sakapeung HOTS 20 poin). Petak beureum pojok katuhu luhur = pasti kartu HOTS. Jawaban salah = 0 poin.</li><li>➡️ maju 2, ⬅️ mundur 2, 🎲 mundur 3, 💣 balik ka titik awal, 🪘 (Balik ka KA/START) ogé balik ka Titik Awal. Pangaruh petak ngan dijalankeun sakali (teu nyambung ka petak séjén).</li><li>Tingkat <i>Gampang</i>: pilihan jawaban dikurangan hiji. <i>Sesah</i>: +5 poin unggal jawaban bener.</li><li>Nepi ka 🏁 <b>Geus Nepi</b> (kaasup lamun dadu leuwih) méré bonus +20 poin, tuluy kaulinan réngsé.</li><li><b>Pamenang</b>: poin pangluhurna. Lamun sarua, anu munggaran nepi ka finis anu meunang.</li></ol><button class="g" onclick="closeM()">SIAP!</button>`)}
+function save(){try{if(S&&S.phase!=='end')localStorage.setItem('nsp_state',JSON.stringify(S));}catch(e){}}
+function hasSave(){try{return !!localStorage.getItem('nsp_state')}catch(e){return false}}
+function newGame(){const n=+$('np').value;S={n,df:+$('df').value,cur:0,phase:'roll',usedQ:[],usedH:[],pl:[...Array(n)].map((_,i)=>({name:($('n'+i).value||'').trim()||'Kelompok '+(i+1),pos:0,pts:0,ok:0,no:0,ans:0,fin:false}))};enter()}
+function resume(){try{S=JSON.parse(localStorage.getItem('nsp_state'));if(!S)throw 0;S.phase='roll';enter()}catch(e){toast('Teu aya kaulinan nu disimpen')}}
+function enter(){$('menu').style.display='none';$('game').style.display='block';buildBoard();ui();save()}
+function toMenu(){closeM();$('game').style.display='none';$('menu').style.display='block';$('bResume').style.display=hasSave()?'block':'none'}
+
+/* ===== PAPAN ===== */
+function buildBoard(){let h=`<div id="ctr"><div class="e">🪘🎶🌾🎭</div><h2>NYUNGSI PANGARTI:<br>TRADISI SUNDA</h2><div class="rb">Kaulinan Papan Balad</div><div class="e">📚🏠👘🗡️</div></div>`;
+  T.forEach((t,i)=>{const[r,c]=gridPos(i),m=M[t];h+=`<div class="cell" id="c${i}" style="grid-area:${r}/${c};background:${m[2]};color:${m[3]}" title="${m[1]}"><em>${i+1}</em>${SV[m[0]]||''}<small class="${m[0]?'':'big'}"${m[0]?'':' style="font-size:clamp(8px,1.8vw,19px)"'}>${m[1]}</small><div class="tk"></div></div>`});
+  $('board').innerHTML=h;tokens()}
+function tokens(){document.querySelectorAll('.tk').forEach(e=>e.innerHTML='');S.pl.forEach((p,i)=>{$('c'+p.pos).querySelector('.tk').insertAdjacentHTML('beforeend',`<span class="pw" style="background:${COL[i]}">${ICO[i]}</span>`)})}
+function ui(){const p=S.pl[S.cur];$('turn').innerHTML=`Giliran: <span style="color:${COL[S.cur]}">${ICO[S.cur]} ${p.name}</span>`;$('bRoll').disabled=S.phase!=='roll';$('bEnd').disabled=S.phase!=='roll';
+  $('mini').innerHTML='<b>Skor</b>'+S.pl.map((q,i)=>`<div class="chip ${i===S.cur?'on':''}"><span class="dot" style="background:${COL[i]}">${ICO[i]}</span><b>${q.name}</b>&nbsp;· petak ${q.pos+1} · ${q.pts} poin</div>`).join('');tokens()}
+function scoreTable(){modal(`<h2>📊 Skor</h2><table><tr><th>Kelompok</th><th>Petak</th><th>Poin</th><th>✔</th><th>✘</th><th>Kartu</th></tr>${S.pl.map((q,i)=>`<tr><td>${ICO[i]} ${q.name}</td><td>${q.pos+1}</td><td><b>${q.pts}</b></td><td>${q.ok}</td><td>${q.no}</td><td>${q.ans}</td></tr>`).join('')}</table><br><button class="g" onclick="closeM()">TUTUP</button>`)}
+
+/* ===== GERAK PION: sapetak-sapetak ===== */
+async function step(p,d){p.pos+=d;tokens();beep(380+p.pos*12,.07,'square');await sleep(280)}
+async function move(p,n){const d=Math.sign(n);for(let k=0;k<Math.abs(n);k++){if(d>0&&p.pos>=LAST)break;if(d<0&&p.pos<=0)break;await step(p,d)}}
+async function roll(){ // KOCOK DADU: dikonci ku phase supaya teu bisa dua kali
+  if(S.phase!=='roll')return;S.phase='busy';ui();const p=S.pl[S.cur];
+  try{const dc=$('dice');dc.classList.add('roll');for(let i=0;i<7;i++){dc.textContent='⚀⚁⚂⚃⚄⚅'[Math.floor(Math.random()*6)];beep(300+i*40,.05);await sleep(90)}
+    const v=1+Math.floor(Math.random()*6);dc.classList.remove('roll');dc.textContent='⚀⚁⚂⚃⚄⚅'[v-1];toast(`${p.name} meunang dadu ${v}`,1200);await sleep(500);
+    await move(p,v);await land(p)}catch(e){console.error(e);S.phase='roll';ui()}}
+async function land(p){ // ngajalankeun pangaruh petak (sakali, teu nyambung)
+  if(p.pos>=LAST)return finish(p);let t=M[T[p.pos]][4];if(t==='qr')t=Math.random()<.35?'h':'q';
+  if(t==='q'||t==='h'){toast(t==='h'?'🧠 Kartu HOTS!':'🃏 Candak kartu patarosan!');await sleep(700);return card(p,t)}
+  const fx={f2:['➡️ Maju 2 langkah!',2],b2:['⬅️ Mundur 2 langkah!',-2],b3:['🎲 Mundur 3 langkah!',-3]}[t];
+  if(fx){toast(fx[0]);beep(520,.2);await sleep(700);await move(p,fx[1]);if(p.pos>=LAST)return finish(p)}
+  else if(t==='bom'){toast('💣 Kembali ka mulai!');beep(120,.4,'sawtooth');await sleep(700);p.pos=0;tokens();await sleep(400)}
+  else if(t==='bal'){toast('🪘 Balik ka Titik Awal!');await sleep(700);p.pos=0;tokens();await sleep(400)}
+  next()}
+function next(){S.cur=(S.cur+1)%S.n;S.phase='roll';save();ui()}
+
+/* ===== KARTU ===== */
+function sh(a){for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]]}return a}
+function pick(t){const src=t==='h'?H:Q,u=t==='h'?S.usedH:S.usedQ;let av=src.map((_,i)=>i).filter(i=>!u.includes(i));if(!av.length){u.length=0;av=src.map((_,i)=>i)}const i=av[Math.floor(Math.random()*av.length)];u.push(i);return src[i]}
+function card(p,t){S.phase='card';ui();const c=pick(t),isH=t==='h';
+  modal(`<div class="back">${isH?'🧠':'🃏'}</div><h2 style="text-align:center">${isH?'KARTU HOTS (20 poin)':'KARTU PATAROSAN (10 poin)'}</h2><button class="r" style="width:100%" id="bOpen">🎴 BUKA KARTU</button>`);beep(500,.15);
+  $('bOpen').onclick=()=>{beep(700,.15);let o=sh([{t:c[1],ok:1},{t:c[2]},{t:c[3]},{t:c[4]}]);if(S.df===1){const w=o.findIndex(x=>!x.ok);o.splice(w,1)}
+    modal(`<b style="color:${COL[S.cur]}">${p.name}</b> · ${isH?'HOTS · 20':'Biasa · 10'} poin<h3>${c[0]}</h3><div id="opts">${o.map((x,i)=>`<button class="opt" data-i="${i}">${'ABCD'[i]}. ${x.t}</button>`).join('')}</div><div id="fb"></div>`);
+    document.querySelectorAll('.opt').forEach(b=>b.onclick=()=>answer(b,o,c,p,isH))}}
+function answer(b,o,c,p,isH){const bs=document.querySelectorAll('.opt');if(bs[0].disabled)return; // cegah skor ganda
+  bs.forEach(x=>x.disabled=true);const ok=!!o[+b.dataset.i].ok;p.ans++;let pts=0;
+  bs.forEach((x,i)=>{if(o[i].ok)x.classList.add('ok')});
+  if(ok){pts=(isH?20:10)+(S.df===3?5:0);p.pts+=pts;p.ok++;beep(880,.2);beep(1100,.3)}else{p.no++;b.classList.add('no');beep(160,.35,'sawtooth')}
+  $('fb').innerHTML=`<p><b>${ok?'✅ Bener! +'+pts+' poin':'❌ Acan bener. +0 poin'}</b><br>${c[5]}</p><button class="g" id="bNext">LANJUTKEUN ▶</button>`;
+  $('bNext').onclick=()=>{closeM();next()};ui()}
+
+/* ===== TAMAT ===== */
+function finish(p){if(p.fin)return;p.fin=true;p.pts+=20;toast('🏁 Geus nepi! Bonus +20 poin!');beep(1000,.4);setTimeout(()=>end(p),900)}
+function end(fin){S.phase='end';try{localStorage.removeItem('nsp_state')}catch(e){}ui();
+  const w=[...S.pl].sort((a,b)=>b.pts-a.pts||(b.fin-a.fin))[0],i=S.pl.indexOf(w);
+  for(let k=0;k<30;k++){const e=document.createElement('div');e.className='cf';e.textContent=['🎉','🌾','🪘','🎶','✨','🏮'][k%6];e.style.left=Math.random()*100+'vw';e.style.animationDelay=Math.random()*2+'s';document.body.appendChild(e);setTimeout(()=>e.remove(),7000)}
+  [523,659,784,1046].forEach((f,k)=>setTimeout(()=>beep(f,.25),k*180));
+  modal(`<div style="text-align:center"><div style="font-size:48px">🏆🌾🪘</div><h2>Wilujeng! Anjeun parantos nyungsi pangarti tina tradisi Sunda!</h2><h3 style="color:${COL[i]}">${ICO[i]} Pamenang: ${w.name}</h3><p>Skor ${w.pts} · Bener ${w.ok} · Kartu dijawab ${w.ans}</p></div><table><tr><th>Kelompok</th><th>Poin</th><th>✔</th><th>Kartu</th></tr>${S.pl.map(q=>`<tr><td>${q.name}${q.fin?' 🏁':''}</td><td>${q.pts}</td><td>${q.ok}</td><td>${q.ans}</td></tr>`).join('')}</table><div class="row" style="margin-top:10px"><button class="g" onclick="newSame()">🔁 ULANGI PERMAINAN</button><button class="b" onclick="toMenu()">🏠 KEMBALI KA MENU</button></div>`)}
+function newSame(){closeM();const n=S.n,df=S.df,nm=S.pl.map(p=>p.name);S={n,df,cur:0,phase:'roll',usedQ:[],usedH:[],pl:nm.map(name=>({name,pos:0,pts:0,ok:0,no:0,ans:0,fin:false}))};buildBoard();ui();save()}
+
+/* ===== PASANGAN TOMBOL ===== */
+$('np').onchange=names;names();
+$('bStart').onclick=()=>{beep(600,.1);newGame()};$('bResume').onclick=resume;$('bHelp').onclick=$('bHelp2').onclick=help;
+$('bSnd').onclick=$('bSnd2').onclick=togSnd;$('bRoll').onclick=roll;$('bScore').onclick=scoreTable;
+$('bEnd').onclick=()=>{if(S.phase==='roll')end()};$('bMenu').onclick=toMenu;
+$('bResume').style.display=hasSave()?'block':'none';setSnd();
+</script></body></html>
